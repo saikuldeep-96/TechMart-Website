@@ -1,62 +1,94 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
+import './loginSignup.css'; 
+import { Link } from "react-router-dom";
 
+const LoginSignup = () => {
+    const [isLogin, setIsLogin] = useState(true); 
 
-
-
-function loginSignup() {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const navigate = useNavigate();
-  
-    const handleLogin = async () => {
-      try {
-        const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-
-        if (email === "user1927@gmail.com" && password === "user1927") {
-          navigate("/admin-home");
-        } else {
-          navigate("/home", { state: { username: email } });
-        }
-      } catch (error) {
-        console.error('Error signing in:', error.message);
-        alert("Invalid email or password. Please try again.");
-      }
+    const handleToggle = () => {
+        setIsLogin(!isLogin);
     };
-  
-    const handleSignup = async () => {
-      try {
-        await createUserWithEmailAndPassword(auth, email, password);
-      } catch (error) {
-        console.error(error.message);
-      }
-    };
-  
+
     return (
-      <div className="p-4">
-        <h1 className="text-xl font-bold mb-4">Account</h1>
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          className="border rounded p-2 mb-2 w-full"
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          className="border rounded p-2 mb-2 w-full"
-        />
-        <div className="flex gap-2">
-          <button onClick={handleLogin} className="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
-          <button onClick={handleSignup} className="bg-green-500 text-white px-4 py-2 rounded">Sign Up</button>
-        </div>
-      </div>
-    );
-  }
+        <div className="login-signup-page">        {/* updated with header, navbar and footer as Login/signup Page*/}
+           
+            <header className="header">
+                <div className="container">
+                    <div className="logo">
+                        <h1>TechMart</h1>
+                    </div>
+                    <nav>
+                        <ul className="nav-links">
+                        <li><Link to="/">Home</Link></li>
+    <li><Link to="#">Deal Zone</Link></li>
+    <li><Link to="#">Services</Link></li>
+    <li><Link to="#">Blogs</Link></li>
+    <li><Link to="#">Contact Us</Link></li>
+                        </ul>
+                    </nav>
+                    <div className="auth-buttons">
+                        <button className="login-btn">Login</button>
+                        <button className="signup-btn">Sign Up</button>
+                    </div>
+                </div>
+            </header>
 
-  export default loginSignup;
+           
+            <section className="login-signup-form">
+                <div className="container">
+                    <h2>{isLogin ? 'Login to Your Account' : 'Create an Account'}</h2>
+
+                    <form action="#">
+                        <div className="input-group">
+                            <label htmlFor="email">Email</label>
+                            <input type="email" id="email" placeholder="Enter your email" required />
+                        </div>
+
+                        <div className="input-group">
+                            <label htmlFor="password">Password</label>
+                            <input type="password" id="password" placeholder="Enter your password" required />
+                        </div>
+
+                        {isLogin ? (
+                            <>
+                          
+                                <div className="button-group">
+                                    <button type="submit" className="submit-btn">Login</button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                              
+                                <div className="input-group">
+                                    <label htmlFor="confirmPassword">Confirm Password</label>
+                                    <input type="password" id="confirmPassword" placeholder="Confirm your password" required />
+                                </div>
+
+                                <div className="button-group">
+                                    <button type="submit" className="submit-btn">Sign Up</button>
+                                </div>
+                            </>
+                        )}
+                    </form>
+
+                    <div className="toggle-action">
+                        <p>
+                            {isLogin ? "Don't have an account?" : "Already have an account?"}
+                            <button onClick={handleToggle}>
+                                {isLogin ? 'Sign Up' : 'Login'}
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <footer className="footer">
+                <div className="container">
+                    <p>About Us | Terms and Conditions | Privacy Policy | Services @ TechMart Canada, Suite 104, Ontario</p>
+                </div>
+            </footer>
+        </div>
+    );
+};
+
+export default LoginSignup;

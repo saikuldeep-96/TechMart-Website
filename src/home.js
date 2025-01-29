@@ -1,34 +1,78 @@
-import React, { useState, useEffect } from "react";
-import { ref, onValue } from "firebase/database";
-import { db } from "./firebase";
+import React from 'react';
+import './home.css';
+import { FaShoppingCart } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
-function Home() {
-    const [products, setProducts] = useState([]);
-  
-    useEffect(() => {
-      const productsRef = ref(db, 'products/');
-      onValue(productsRef, (snapshot) => {
-        const data = snapshot.val();
-        const productList = Object.keys(data || {}).map(key => ({ id: key, ...data[key] }));
-        setProducts(productList);
-      });
-    }, []);
-  
-    return (
-      <div className="p-4">
-        <h1 className="text-2xl font-bold mb-4">Featured Products</h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {products.map(product => (
-            <div key={product.id} className="border rounded-lg p-4 shadow-md">
-              <img src={product.image} alt={product.name} className="w-full h-40 object-cover mb-2" />
-              <h2 className="text-lg font-semibold">{product.name}</h2>
-              <p className="text-gray-700">${product.price}</p>
-              <Link to={`/product/${product.id}`} className="text-blue-500">View Details</Link>
-            </div>
-          ))}
+
+
+const featuredProducts = [
+  { id: 1, name: "iPhone 15 Pro", price: "1099", image: "images/iphone.jpg" },
+  { id: 2, name: "Redmi Note 14", price: "699", image: "images/redmi.jpg" },
+  { id: 3, name: "Samsung Ultra 24", price: "1299", image: "images/samsung.jpg" }
+];
+
+function Home() {                          {/* updated with header, navbar and footer as Home Page*/}
+  return (
+    <div className="app">
+      <header className="header">
+        <div className="container">
+          <div className="logo">
+            <h1>TechMart</h1>
+          </div>
+          <nav>
+            <ul className="nav-links">
+            <li><Link to="/">Home</Link></li>
+    <li><Link to="#">Deal Zone</Link></li>
+    <li><Link to="#">Services</Link></li>
+    <li><Link to="#">Blogs</Link></li>
+    <li><Link to="#">Contact Us</Link></li>
+            </ul>
+          </nav>
+          <div className="auth-buttons">
+            <button className="login-btn">Login</button>
+            
+             <div className="cart-icon">
+                  <FaShoppingCart size={40} />
+             </div>
+            
+          </div>
         </div>
-      </div>
-    );
-  }
+      </header>
+
+      <section className="search-bar">
+        <div className="container">
+          <input type="text" placeholder="Search for products..." />
+          <button>Search</button>
+        </div>
+      </section>
+
+      <section className="featured-products">
+        <div className="container">
+          <h2>Featured Products</h2>
+          <div className="product-grid">
+            {featuredProducts.length > 0 ? (
+              featuredProducts.map((product) => (
+                <div className="product-card" key={product.id}>
+                  <img src={product.image} alt={product.name} />
+                  <h3>{product.name}</h3>
+                  <p>${product.price}</p>
+                  <button>Add to Cart</button>
+                </div>
+              ))
+            ) : (
+              <p>Loading products...</p>
+            )}
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer">
+        <div className="container">
+          <p>About Us | Terms and Conditions | Privacy Policy | Services @ TechMart Canada, Suite 104, Ontario</p>
+        </div>
+      </footer>
+    </div>
+  );
+}
 
 export default Home;

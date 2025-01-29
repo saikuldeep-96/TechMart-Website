@@ -8,6 +8,7 @@ const firebaseConfig = {
   apiKey: "AIzaSyA7hchD_OCFOmOsc99Sf71Yahu21aqHDMQ",
   authDomain: "techmart-3e304.firebaseapp.com",
   projectId: "techmart-3e304",
+  databaseURL: "https://techmart-3e304-default-rtdb.asia-southeast1.firebasedatabase.app",    /* updated url */
   storageBucket: "techmart-3e304.firebasestorage.app",
   messagingSenderId: "54956868778",
   appId: "1:54956868778:web:56371e8537021258827cd3",

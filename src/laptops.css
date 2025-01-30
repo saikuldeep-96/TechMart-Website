@@ -1,0 +1,222 @@
+/* General Styles */
+.app {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .header {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .logo h1 {
+    font-size: 30px;
+    margin: 0;
+  }
+  
+  .nav-links {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li {
+    display: inline-block;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .login-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .login-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .cart-icon {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  /* Category Dropdown */
+  .category-dropdown {
+    margin: 20px 0;
+    position: relative;
+  }
+  
+  .category-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .category-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .category-btn .icon {
+    margin-left: 10px;
+  }
+  
+  .dropdown-menu {
+    background-color: #fff;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    padding: 10px 0;
+    display: none;  /* Start hidden */
+    flex-direction: column;  /* Stack items vertically */
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .dropdown-menu button {
+    background-color: #fff;
+    border: none;
+    padding: 12px 20px;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin: 5px 0; /* Add space between buttons */
+  }
+  
+  .dropdown-menu button:hover {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  /* Dropdown visibility when open */
+  .category-dropdown.open .dropdown-menu {
+    display: flex;  /* Only display when open */
+  }
+  
+  .search-bar {
+    margin: 20px 0;
+  }
+  
+  .search-bar input {
+    padding: 10px;
+    width: 70%;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .search-bar button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .search-bar button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Featured Products */
+  .featured-products {
+    margin: 20px 0;
+  }
+  
+  .featured-products h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+  }
+  
+  .product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .product-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+  
+  .product-card p {
+    font-size: 16px;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .product-card button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .product-card button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 14px;
+  }
+  

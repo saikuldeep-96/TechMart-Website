@@ -1,0 +1,181 @@
+/* adminDashboard.css */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /* Container for the entire dashboard */
+  .admin-dashboard {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+  
+  /* Header Section */
+  .header {
+    background-color: #282c34;
+    color: white;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .nav-links li {
+    list-style: none;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .auth-buttons {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .login-btn {
+    padding: 10px 20px;
+    background-color: #f05d23;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .cart-icon {
+    margin-left: 20px;
+  }
+  
+  /* Sidebar Section */
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    height: 100vh;
+    position: fixed;
+    top: 50px; /* Sidebar starts below the sticky header */
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar h3 {
+    margin-bottom: 20px;
+    color: white;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar ul li {
+    margin: 10px 0;
+    padding: 10px;
+    background-color: #444;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li:hover {
+    background-color: #555;
+  }
+  
+  .sidebar ul li:active {
+    background-color: #666;
+  }
+  
+  /* Content Section */
+  .content {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+    margin-top: 50px; /* Space for the sticky header */
+    background-color: #fff;
+  }
+  
+  .product-list {
+    width: 100%;
+    overflow-x: auto;
+    margin-bottom: 30px;
+  }
+  
+  .product-list table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .product-list th,
+  .product-list td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-list th {
+    background-color: #f4f4f4;
+  }
+  
+  .add-product {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+  }
+  
+  .add-product input,
+  .add-product textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #ddd;
+  }
+  
+  .add-product button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  footer {
+    background-color: #282c34;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    margin-top: auto;
+  }
+  

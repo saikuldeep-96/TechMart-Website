@@ -1,9 +1,6 @@
 import React from 'react';
 import './home.css';
-import { FaShoppingCart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
-
-
 
 const featuredProducts = [
   { id: 1, name: "iPhone 15 Pro", price: "1099", image: "images/iphone.jpg" },
@@ -11,7 +8,7 @@ const featuredProducts = [
   { id: 3, name: "Samsung Ultra 24", price: "1299", image: "images/samsung.jpg" }
 ];
 
-function Home() {                          {/* updated with header, navbar and footer as Home Page*/}
+function Home() {
   return (
     <div className="app">
       <header className="header">
@@ -21,20 +18,18 @@ function Home() {                          {/* updated with header, navbar and f
           </div>
           <nav>
             <ul className="nav-links">
-            <li><Link to="/">Home</Link></li>
-    <li><Link to="#">Deal Zone</Link></li>
-    <li><Link to="#">Services</Link></li>
-    <li><Link to="#">Blogs</Link></li>
-    <li><Link to="#">Contact Us</Link></li>
+              <li><Link to="/">Home</Link></li>
+              <li><Link to="#">Products</Link></li>
+              <li><Link to="#">Services</Link></li>
+              <li><Link to="#">Blogs</Link></li>
+              <li><Link to="#">Contact Us</Link></li>  
             </ul>
           </nav>
           <div className="auth-buttons">
-            <button className="login-btn">Login</button>
-            
-             <div className="cart-icon">
-                  <FaShoppingCart size={40} />
-             </div>
-            
+            <Link to="/login-signup">
+              <button className="login-btn">Login</button>  
+            </Link>
+
           </div>
         </div>
       </header>

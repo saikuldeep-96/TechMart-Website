@@ -1,17 +1,22 @@
 import React from "react";
+import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./home";
 import LoginSignup from "./loginSignup";
 import Products from "./products";
+import Profile from "./profile";
 import Laptops from "./laptops";
 import Mobiles from "./mobiles";
+import Cart from "./cart";
+import AdminDashboard from "./adminDashboard";
+import OrderHistory from "./uOrderHistory";
+
 // import ProductDetails from "./productDetails"; 
-// import Cart from "./cart";
 // import Checkout from "./checkout"; 
 // import Payment from "./payment"; 
 // import Orders from "./orders"; 
-// import AdminDashboard from "./admin";                /updated routes and added laptops and products pages/
-//
+//                /updated routes and added admindashboard, orderhistory, cart,  pages/
+
 
 
 function App() {     {/* Routes updated */}
@@ -22,9 +27,15 @@ function App() {     {/* Routes updated */}
 
           <Route path="/" element={<Home />} />
           <Route path="/login-signup" element={<LoginSignup />} />
+
           <Route path="/products" element={<Products />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/order-history" element={<OrderHistory />} />
           <Route path="/laptops" element={<Laptops />} />
           <Route path="/mobiles" element={<Mobiles />} />
+          <Route path="/cart" element={<Cart />} />
+
+          <Route path="/admin-dashboard" element={<AdminDashboard />} />
           
 
         </Routes>

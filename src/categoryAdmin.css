@@ -1,0 +1,53 @@
+.category-page {
+    padding: 20px;
+  }
+  
+  .category-form {
+    margin-bottom: 20px;
+  }
+  
+  .category-form input {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .category-form button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .category-form button:hover {
+    background-color: #45a049;
+  }
+  
+  .category-list ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .category-list li {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .category-list button {
+    background-color: #f44336;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .category-list button:hover {
+    background-color: #e53935;
+  }
+  
+  button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

@@ -1,0 +1,62 @@
+/* Users Page */
+.users-page {
+    margin-left: 250px;
+    padding: 20px;
+    flex: 1;
+    margin-top: 50px; /* Space for the sticky header */
+    background-color: #fff;
+}
+
+.users-page h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+}
+
+.users-page table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.users-page th,
+.users-page td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.users-page th {
+    background-color: #f4f4f4;
+}
+
+.users-page button.delete {
+    background-color: #e74c3c;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.users-page button.delete:hover {
+    background-color: #c0392b;
+}
+
+.users-page button.delete:active {
+    background-color: #bd3a3a;
+}
+
+.users-page .loading-spinner {
+    display: inline-block;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

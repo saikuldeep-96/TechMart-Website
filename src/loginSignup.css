@@ -1,87 +1,171 @@
-.login-signup-page {
+
+body {
     font-family: Arial, sans-serif;
-    text-align: center;
-}
-
-.header {
-    background-color: #333;
-    color: white;
-    padding: 15px;
-}
-
-.container {
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container-new {
     width: 80%;
-    margin: auto;
-}
-
-
-.form-container {
+    margin: 0 auto;
+    padding: 0px;
+  }
+  
+  /* Header */
+  .header-new {
+    background-color: #333;
+    padding: 1px 0;
+  }
+  
+  .logo-new h1 {
+    color: #fff;
+    text-align: left;
+    font-size: 2rem;
+  }
+  
+  .nav-links-new {
+    list-style-type: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links-new li {
+    display: inline-block;
+    margin: 0 15px;
+    
+  }
+  
+  .nav-links-new li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+  }
+  
+  .nav-links-new li a:hover {
+    color: #f4a261;
+  }
+  
+  /* Form Styles */
+  .login-signup-form-new {
+    background-color: #fff;
+    padding: 40px 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+    border-radius: 10px;
     display: flex;
     justify-content: space-between;
-    margin-top: 30px;
-    gap: 20px;
-}
-
-.form-box {
+    gap: 30px;
+  }
+  
+  /* Form Box (Login and Signup) */
+  .form-box-new {
     width: 45%;
+    background-color: #fff;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    background: #f9f9f9;
-}
-
-.input-group {
-    margin: 10px 0;
-}
-
-.input-group label {
-    display: block;
-    font-weight: bold;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.button-group {
-    margin-top: 10px;
-}
-
-.submit-btn {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100%;
-}
-
-.submit-btn:hover {
-    background-color: #218838;
-}
-
-.footer {
-    background-color: #333;
-    color: white;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+  }
+  
+  /* Form Title */
+  h2 {
+    margin-bottom: 20px;
     text-align: center;
-    padding: 15px;
-    margin-top: auto; 
+    font-size: 1.8rem;
+  }
+  
+  /* Input Styles */
+  .input-group-new {
+    margin-bottom: 15px;
+  }
+  
+  .input-group-new label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .input-group-new input {
     width: 100%;
-}
-
-.login-signup-page {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; 
-}
-
-
-.login-signup-form {
-    flex: 1;
-}
-
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  /* Error and Success messages */
+  .error-new {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  .success-message-new {
+    color: green;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  /* Button Styles */
+  .submit-btn-new {
+    background-color: #2d9cdb;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+  }
+  
+  .submit-btn-new:hover {
+    background-color: #1a7ea3;
+  }
+  
+  .submit-btn-new:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+  }
+  
+  .forgot-password-link {
+    text-align: center;
+    margin-top: 15px;
+  }
+  
+  .forgot-password-btn {
+    background-color: transparent;
+    color: #2d9cdb;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  .forgot-password-btn:hover {
+    text-decoration: underline;
+  }
+  
+  /* Forgot Password Form */
+  .forgot-password-form {
+    margin-top: 20px;
+  }
+  
+  .forgot-password-form input {
+    margin-bottom: 20px;
+  }
+  
+  /* Footer Styles */
+  .footer-new {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 0.9rem;
+  }
+  
+  .footer-new p {
+    margin: 0;
+  }
+  

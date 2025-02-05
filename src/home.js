@@ -1,14 +1,67 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './home.css';
 import { Link } from 'react-router-dom';
-
-const featuredProducts = [
-  { id: 1, name: "iPhone 15 Pro", price: "1099", image: "images/iphone.jpg" },
-  { id: 2, name: "Redmi Note 14", price: "699", image: "images/redmi.jpg" },
-  { id: 3, name: "Samsung Ultra 24", price: "1299", image: "images/samsung.jpg" }
-];
+import { getDatabase, ref, get } from 'firebase/database';  
 
 function Home() {
+  const [products, setProducts] = useState([]);  //updated with firebase database and search functionality 
+  const [loading, setLoading] = useState(true);   
+  const [searchQuery, setSearchQuery] = useState(''); 
+
+ 
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const db = getDatabase();
+        const categoriesRef = ref(db, 'products/categories'); 
+        const snapshot = await get(categoriesRef);
+
+        if (snapshot.exists()) {
+          const categoriesData = snapshot.val();
+          console.log("Fetched categories data:", categoriesData); 
+
+          let allProducts = [];
+         
+          for (const category in categoriesData) {
+            const categoryProducts = categoriesData[category];
+            const categoryProductsList = Object.entries(categoryProducts).map(([id, product]) => ({
+              id,
+              name: product.name,
+              price: product.price,
+              image: product.image || "default-image-url", 
+              category, 
+            }));
+            allProducts = [...allProducts, ...categoryProductsList];  
+          }
+
+          setProducts(allProducts);  
+        } else {
+          console.log("No categories found in Firebase.");
+        }
+      } catch (error) {
+        console.error("Error fetching products:", error);
+      } finally {
+        setLoading(false); 
+      }
+    };
+
+    fetchProducts();
+  }, []); 
+
+ 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+ 
+  const filteredProducts = products.filter((product) => {
+    const lowerCaseQuery = searchQuery.toLowerCase();
+    return (
+      product.name.toLowerCase().includes(lowerCaseQuery) ||
+      product.category.toLowerCase().includes(lowerCaseQuery)
+    );
+  });
+
   return (
     <div className="app">
       <header className="header">
@@ -29,14 +82,18 @@ function Home() {
             <Link to="/login-signup">
               <button className="login-btn">Login</button>  
             </Link>
-
           </div>
         </div>
       </header>
 
       <section className="search-bar">
         <div className="container">
-          <input type="text" placeholder="Search for products..." />
+          <input
+            type="text"
+            placeholder="Search for products..."
+            value={searchQuery}
+            onChange={handleSearchChange}
+          />
           <button>Search</button>
         </div>
       </section>
@@ -45,8 +102,10 @@ function Home() {
         <div className="container">
           <h2>Featured Products</h2>
           <div className="product-grid">
-            {featuredProducts.length > 0 ? (
-              featuredProducts.map((product) => (
+            {loading ? (
+              <p>Loading products...</p>
+            ) : filteredProducts.length > 0 ? (
+              filteredProducts.map((product) => (
                 <div className="product-card" key={product.id}>
                   <img src={product.image} alt={product.name} />
                   <h3>{product.name}</h3>
@@ -55,7 +114,7 @@ function Home() {
                 </div>
               ))
             ) : (
-              <p>Loading products...</p>
+              <p>No products found matching your search.</p>
             )}
           </div>
         </div>

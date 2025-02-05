@@ -6,86 +6,56 @@
 }
 
 html, body {
-  height: 100%; /* Full height for the page */
-  margin: 0;
-  font-family: 'Arial', sans-serif; /* Default font for the page */
+  height: 100%;
+  font-family: 'Arial', sans-serif;
 }
 
-.update-profile-container {
-  text-align: center;
+.profile-container {
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  padding-bottom: 20px; /* To make sure footer is not hidden */
-}
-
-/* Header styles */
-.header {
-  background-color: #333; /* Dark background */
-  color: #fff; /* White text */
-  padding: 20px 0;
-  font-size: 24px;
-}
-
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
-.logo {
-  font-size: 28px; /* Larger logo font size */
-  font-weight: bold;
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
 }
 
-.nav-links {
-  display: flex;
-  list-style: none;
-  justify-content: center;
+.message {
+  color: red;
+  margin: 10px 0;
 }
 
-.nav-links li {
-  margin: 0 20px;
-}
-
-.nav-links li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-.nav-links li a:hover {
-  color: #f1c40f; /* Gold color for hover */
-}
-
-/* Profile Update Form */
 .form-container {
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin-bottom: 20px;
+}
+
+.profile-form, .password-form {
+  width: 48%;
   background-color: #f9f9f9;
+  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.update-form {
+.profile-form form, .password-form form {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
 form label {
-  display: block;
-  margin-bottom: 8px;
   font-size: 16px;
   text-align: left;
 }
 
 form input {
-  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px solid #ddd;
@@ -97,7 +67,6 @@ form button {
   background-color: #333;
   color: #fff;
   padding: 10px;
-  width: 100%;
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -107,12 +76,6 @@ form button:disabled {
   background-color: #ccc;
 }
 
-.message {
-  color: red;
-  margin: 10px 0;
-}
-
-/* Back to Products Button */
 .back-button {
   background-color: #3498db;
   color: white;
@@ -122,32 +85,19 @@ form button:disabled {
   border-radius: 4px;
   cursor: pointer;
   margin-top: 20px;
-  display: inline-block;
 }
 
 .back-button:hover {
   background-color: #2980b9;
 }
 
-/* Footer styles */
-.footer {
-  background-color: #333;
-  color: white;
-  padding: 20px 0;
-  margin-top: auto;
-  font-size: 14px;
-  text-align: center;
-}
+@media (max-width: 768px) {
+  .form-container {
+    flex-direction: column;
+    gap: 10px;
+  }
 
-.footer p {
-  margin: 0;
-}
-
-.footer a {
-  color: #f1c40f;
-  text-decoration: none;
-}
-
-.footer a:hover {
-  color: white;
+  .profile-form, .password-form {
+    width: 100%;
+  }
 }

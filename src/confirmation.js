@@ -1,18 +1,19 @@
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./confirmation.css";
 
-const ConfirmationPage = () => {
-  const location = useLocation();
-  const total = location.state?.total || 0;
-
+const OrderConfirmation = () => {
   return (
     <div className="confirmation-container">
-      <h2>Payment Successful!</h2>
-      <p>Your payment of ${total} has been processed.</p>
-      <Link to="/">Go to Homepage</Link>
+      <h2>🎉 Order Successful!</h2>
+      <p>Thank you for your purchase. Your order has been placed successfully.</p>
+      <p>You will receive a confirmation email shortly.</p>
+      
+      <Link to="/products">
+        <button className="continue-shopping-btn">Continue Shopping</button>
+      </Link>
     </div>
   );
 };
 
-export default ConfirmationPage;
+export default OrderConfirmation;

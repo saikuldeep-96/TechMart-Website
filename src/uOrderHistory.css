@@ -1,67 +1,188 @@
+/* Global Reset and Basic Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* Container for the order history page */
+.order-history-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.order-history-header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 0;
+}
+
+.order-history-header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.order-history-header .logo h1 {
+  font-size: 2rem;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin-right: 300px;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links li a:hover {
+  color: #f1c40f; /* Hover color */
+}
+
+/* Order History Content */
+.order-history-content {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.order-history-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.message {
+  color: red;
+  margin-bottom: 20px;
+}
+
+/* Orders List */
+.orders {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-card {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.order-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.order-card p {
+  margin: 5px 0;
+}
+
+/* Back Button */
+.back-button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 20px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
+
+/* Footer Styles */
+.order-history-footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  margin-top: auto;
+}
+
+.order-history-footer .container p {
+  font-size: 0.9rem;
+  margin-left: 260px;
+}
+
 .order-history-container {
-    font-family: Arial, sans-serif;
-    padding: 20px;
-  }
-  
-  .header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-  }
-  
-  .header .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .order-history-container h2 {
-    font-size: 2rem;
-    margin-top: 20px;
-  }
-  
-  .orders {
-    margin-top: 20px;
-  }
-  
-  .order-card {
-    background-color: #f9f9f9;
-    padding: 20px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
-  
-  .order-card h3 {
-    margin: 0;
-    font-size: 1.5rem;
-  }
-  
-  .order-card p {
-    margin: 5px 0;
-  }
-  
-  .back-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .back-button:hover {
-    background-color: #0056b3;
-  }
-  
-  .footer {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-    text-align: center;
-    margin-top: 20px;
-  }
-  
+  padding: 20px;
+  text-align: center;
+}
+
+/* Order History Grid */
+.order-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.order-card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.order-card h3 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.order-card p {
+  margin: 5px 0;
+}
+
+.order-card ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.order-card ul li {
+  margin: 5px 0;
+}
+
+/* Shop More Button */
+.shop-more-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.shop-more-btn {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.shop-more-btn:hover {
+  background-color: #0056b3;
+}

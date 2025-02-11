@@ -6,25 +6,35 @@ import './usersAdmin.css';
 const UsersPage = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const db = getDatabase();
   const auth = getAuth();
 
   useEffect(() => {
-    fetchUsers();
+    // Check if the user is authenticated and fetch user data
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setCurrentUser(user);
+        fetchUsers();
+      } else {
+        setCurrentUser(null);  // If no user is authenticated, clear current user state
+      }
+    });
   }, []);
 
   // Fetch users from Firebase Database (or Authentication)
   const fetchUsers = async () => {
     try {
       setLoading(true);
-      // Assuming users are stored in a 'users' node in Realtime Database
       const usersRef = ref(db, 'users');
       const snapshot = await get(usersRef);
       if (snapshot.exists()) {
         const userList = Object.entries(snapshot.val()).map(([id, user]) => ({
           id,
-          ...user,
+          email: user.email || "No email",  // Ensure email is fetched
+          name: user.name || "Unnamed",  // Ensure name is fetched
+          role: user.role || "user",  // Default to "user" if role is missing
         }));
         setUsers(userList);
       } else {
@@ -36,6 +46,7 @@ const UsersPage = () => {
       setLoading(false);
     }
   };
+  
 
   // Handle user deletion
   const handleDeleteUser = async (userId) => {
@@ -54,7 +65,7 @@ const UsersPage = () => {
       <h2>Users List</h2>
       
       {loading ? (
-        <div className="loading-spinner"></div>
+        <div className="loading-spinner">Loading...</div>
       ) : (
         <table>
           <thead>

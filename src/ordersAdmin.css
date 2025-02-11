@@ -8,22 +8,29 @@
 }
 
 .orders-table th, .orders-table td {
-  padding: 12px;
+  padding: 10px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
 .orders-table th {
-  background-color: #f4f4f4;
+  background-color: #f1f1f1;
+}
+
+.orders-table tr:nth-child(even) {
+  background-color: #f9f9f9;
 }
 
 button {
-  padding: 8px 15px;
+  padding: 8px 16px;
   margin: 5px;
-  cursor: pointer;
-  background-color: #4CAF50;
-  color: white;
   border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #007bff;
+  color: white;
 }
 
 button:disabled {
@@ -33,6 +40,9 @@ button:disabled {
 
 .error {
   color: red;
-  font-size: 16px;
-  margin-top: 20px;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
 }

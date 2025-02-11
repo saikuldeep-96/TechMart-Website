@@ -2,18 +2,17 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { getAuth } from 'firebase/auth';
-import { getDatabase, ref, get, set } from "firebase/database";  // Firebase functions
+import { getDatabase, ref, get, set, update} from "firebase/database";
 import "./cart.css";
 
 const Cart = () => {
-  const [cart, setCart] = useState([]);                                // updated with database and cart functionality
+  const [cart, setCart] = useState([]);
 
-  // Fetch cart data from Firebase when component mounts
   useEffect(() => {
     const fetchCart = async () => {
       const user = getAuth().currentUser;
       if (user) {
-        const userId = user.uid;  // Get the user ID
+        const userId = user.uid;
         const db = getDatabase();
         const cartRef = ref(db, `carts/${userId}`);
         
@@ -21,23 +20,24 @@ const Cart = () => {
           const snapshot = await get(cartRef);
           if (snapshot.exists()) {
             const cartData = snapshot.val();
-            const cartItems = Object.values(cartData);  // Convert object to array
+            const cartItems = Object.values(cartData);
             setCart(cartItems);
           } else {
             console.log("No cart data found.");
+            setCart([]);
           }
         } catch (error) {
           console.error("Error fetching cart data:", error);
         }
       } else {
         console.log("No user is logged in.");
+        setCart([]);
       }
     };
 
     fetchCart();
-  }, []);  // Empty dependency array ensures it runs only once on component mount
+  }, []); 
 
-  // Update quantity for a specific item
   const updateQuantity = (id, newQuantity) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
@@ -45,31 +45,27 @@ const Cart = () => {
       )
     );
 
-    // Update the cart in Firebase after updating locally
     const user = getAuth().currentUser;
     if (user) {
       const userId = user.uid;
       const db = getDatabase();
-      set(ref(db, `carts/${userId}`), cart);  // Update cart data in Firebase
+      set(ref(db, `carts/${userId}`), cart);
     }
   };
 
-  // Remove item from the cart
   const removeItem = (id) => {
     setCart((prevCart) => {
       const updatedCart = prevCart.filter((item) => item.id !== id);
-      // Update the cart in Firebase after removing an item
       const user = getAuth().currentUser;
       if (user) {
         const userId = user.uid;
         const db = getDatabase();
-        set(ref(db, `carts/${userId}`), updatedCart);  // Update cart data in Firebase
+        set(ref(db, `carts/${userId}`), updatedCart);
       }
       return updatedCart;
     });
   };
 
-  // Calculate total price of items in the cart
   const totalPrice = cart.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
@@ -90,7 +86,7 @@ const Cart = () => {
           </nav>
           <div className="auth-buttons">
             <Link to="/"><button className="new-login-btn">Logout</button></Link>
-            <Link to="/profile"><button className="new-login-btn">User Profile</button></Link>
+            <Link to="/profile"><button className="new-login-btn">Profile</button></Link>
             <Link to="/order-history"><button className="new-login-btn">Orders</button></Link>
             <div className="cart-icon">
               <Link to="/cart"><FaShoppingCart size={40} /></Link>

@@ -6,7 +6,7 @@ const CategoryPage = () => {
   const [categories, setCategories] = useState([]);
   const [categoryName, setCategoryName] = useState('');
   const [editCategoryId, setEditCategoryId] = useState(null);
-  const db = getDatabase();  // Initialize Firebase Realtime Database instance
+  const db = getDatabase();  
 
   // Fetch categories from Firebase
   const fetchCategories = async () => {

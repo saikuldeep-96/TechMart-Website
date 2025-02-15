@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getAuth, signOut } from 'firebase/auth';
 import { getDatabase, ref, set, get, push, remove, update } from 'firebase/database';
 import './adminDashboard.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; //
 
 const AdminDashboard = () => {
   const navigate = useNavigate();

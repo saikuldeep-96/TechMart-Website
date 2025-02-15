@@ -1,0 +1,52 @@
+.blogs {
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .blog-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .blog-card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .blog-card h3 {
+    margin-bottom: 10px;
+  }
+  
+  .blog-card a {
+    display: inline-block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .blog-card a:hover {
+    text-decoration: underline;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the page takes the full height */
+  }
+  
+  .container {
+    flex: 1; /* This makes the content take up all available space */
+  }
+  
+  .footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 390px; /* Pushes the footer to the bottom */
+  }
+  

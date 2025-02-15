@@ -3,15 +3,18 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { getDatabase, ref, get } from "firebase/database";  
-import { getAuth } from "firebase/auth";
+import { getAuth } from "firebase/auth";  //
 
 import "./App.css";
 import Home from "./home";
+
+import blogs from "./blogs";
+import Services from "./services";
+import Contact from "./contact";
+
 import LoginSignup from "./loginSignup";
 import Products from "./products";
 import Profile from "./profile";
-import Laptops from "./laptops";
-import Mobiles from "./mobiles";
 import Cart from "./cart";
 import OrderHistory from "./uOrderHistory";
 import Checkout from "./checkout";
@@ -64,6 +67,11 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
+
+          <Route path="/services" element={<Services />} />
+          <Route path="/blogs" element={<blogs />} />
+          <Route path="/contact" element={<Contact />} />
+          
           <Route path="/login-signup" element={<LoginSignup />} />
           <Route path="/products" element={<Products />} />
           <Route path="/profile" element={<Profile />} />

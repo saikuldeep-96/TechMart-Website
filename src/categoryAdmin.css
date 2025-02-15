@@ -6,7 +6,7 @@
     margin-bottom: 20px;
   }
   
-  .category-form input {
+  .category-form input {      /* Add this line */
     padding: 8px;
     margin-right: 10px;
   }

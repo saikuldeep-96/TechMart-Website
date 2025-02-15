@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { getAuth } from 'firebase/auth';
-import { getDatabase, ref, get, set, update} from "firebase/database";
+import { getDatabase, ref, get, set, update} from "firebase/database"; //
 import "./cart.css";
 
 const Cart = () => {

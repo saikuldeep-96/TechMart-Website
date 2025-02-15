@@ -14,7 +14,7 @@
   .app {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the app takes full height */
+    min-height: 100vh; 
   }
   
   header {

@@ -7,7 +7,7 @@ import { getDatabase } from "firebase/database";
 const firebaseConfig = {
   apiKey: "AIzaSyA7hchD_OCFOmOsc99Sf71Yahu21aqHDMQ",
   authDomain: "techmart-3e304.firebaseapp.com",
-  databaseURL: "https://techmart-3e304-default-rtdb.firebaseio.com",  //Updated URL
+  databaseURL: "https://techmart-3e304-default-rtdb.firebaseio.com",  
   projectId: "techmart-3e304",
   storageBucket: "techmart-3e304.firebasestorage.app",
   messagingSenderId: "54956868778",

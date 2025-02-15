@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./confirmation.css";
 
-const OrderConfirmation = () => {
+const OrderConfirmation = () => {  //
   return (
     <div className="confirmation-container">
       <h2>🎉 Order Successful!</h2>

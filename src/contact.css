@@ -1,0 +1,51 @@
+.contact {
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  .contact form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+  }
+  
+  .contact input,
+  .contact textarea {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact button {
+    background: #007bff;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .contact button:hover {
+    background: #0056b3;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; 
+  }
+  
+  .container {
+    flex: 1; /* This makes the content take up all available space */
+  }
+  
+  .footer {
+    background: #222;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: auto; /* Pushes the footer to the bottom */
+  }
+  
+  

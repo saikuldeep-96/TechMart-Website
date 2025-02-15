@@ -4,7 +4,7 @@ import { getAuth } from "firebase/auth";
 import { getDatabase, ref, get } from "firebase/database";
 import "./checkout.css";
 
-const Checkout = () => {
+const Checkout = () => {  //
   const navigate = useNavigate();
   const [cart, setCart] = useState([]);
   const [totalPrice, setTotalPrice] = useState(0);

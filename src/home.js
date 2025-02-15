@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { getDatabase, ref, get } from 'firebase/database';  
 
 function Home() {
-  const [products, setProducts] = useState([]);  //updated with firebase database and search functionality 
+  const [products, setProducts] = useState([]);  //updated with firebase database 
   const [loading, setLoading] = useState(true);   
   const [searchQuery, setSearchQuery] = useState(''); 
 

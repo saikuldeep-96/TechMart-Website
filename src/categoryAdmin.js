@@ -6,19 +6,29 @@ const CategoryPage = () => {
   const [categories, setCategories] = useState([]);
   const [categoryName, setCategoryName] = useState('');
   const [editCategoryId, setEditCategoryId] = useState(null);
-  const db = getDatabase();  
+  const db = getDatabase();
 
   // Fetch categories from Firebase
   const fetchCategories = async () => {
     try {
-      const categoriesRef = ref(db, 'categories');
+      const categoriesRef = ref(db, 'products/categories'); // Path for categories under products
       const snapshot = await get(categoriesRef);
+
       if (snapshot.exists()) {
-        const fetchedCategories = Object.entries(snapshot.val()).map(([categoryId, category]) => ({
-          categoryId,
-          ...category,
-        }));
-        setCategories(fetchedCategories);  // Set categories in state
+        const fetchedCategories = [];
+
+        // Loop through each category (e.g., mobiles, laptops)
+        snapshot.forEach((categorySnapshot) => {
+          const categoryId = categorySnapshot.key;  // categoryId: mobiles or laptops
+          const categoryName = categoryId.charAt(0).toUpperCase() + categoryId.slice(1); // Capitalize category name
+
+          fetchedCategories.push({
+            categoryId,
+            name: categoryName, // use categoryId as name for category display
+          });
+        });
+
+        setCategories(fetchedCategories);  // Set the categories in the state
       } else {
         setCategories([]);  // If no categories exist, set empty array
       }
@@ -32,7 +42,7 @@ const CategoryPage = () => {
     if (!categoryName) return;  // Ensure category name is provided
 
     try {
-      const newCategoryRef = ref(db, 'categories/' + Date.now());  // Use current timestamp as unique ID
+      const newCategoryRef = ref(db, 'products/categories/' + Date.now());  // Use current timestamp as unique ID
       await set(newCategoryRef, {
         name: categoryName,
       });
@@ -48,7 +58,7 @@ const CategoryPage = () => {
     if (!categoryName || !editCategoryId) return;
 
     try {
-      const categoryRef = ref(db, `categories/${editCategoryId}`);
+      const categoryRef = ref(db, `products/categories/${editCategoryId}`);
       await update(categoryRef, { name: categoryName });
       setCategoryName('');  // Clear the input field
       setEditCategoryId(null);  // Clear the editing mode
@@ -61,7 +71,7 @@ const CategoryPage = () => {
   // Delete a category
   const deleteCategory = async (categoryId) => {
     try {
-      const categoryRef = ref(db, `categories/${categoryId}`);
+      const categoryRef = ref(db, `products/categories/${categoryId}`);
       await remove(categoryRef);  // Remove the category from Firebase
       fetchCategories();  // Refresh the category list
     } catch (error) {
@@ -97,14 +107,16 @@ const CategoryPage = () => {
           <ul>
             {categories.map((category) => (
               <li key={category.categoryId}>
-                {category.name}
-                <button onClick={() => {
-                  setCategoryName(category.name);  // Set name for editing
-                  setEditCategoryId(category.categoryId);  // Set editing mode
-                }}>
-                  Edit
-                </button>
-                <button onClick={() => deleteCategory(category.categoryId)}>Delete</button>
+                {category.name} {/* Display category name (Mobiles, Laptops) */}
+                <div>
+                  <button onClick={() => {
+                    setCategoryName(category.name);  // Set name for editing
+                    setEditCategoryId(category.categoryId);  // Set editing mode
+                  }}>
+                    Edit
+                  </button>
+                  <button onClick={() => deleteCategory(category.categoryId)}>Delete</button>
+                </div>
               </li>
             ))}
           </ul>

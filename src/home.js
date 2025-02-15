@@ -70,12 +70,12 @@ function Home() {
             <h1>TechMart</h1>
           </div>
           <nav>
-            <ul className="nav-links">
+            <ul className="nav-links1">
               <li><Link to="/">Home</Link></li>
               <li><Link to="#">Products</Link></li>
-              <li><Link to="#">Services</Link></li>
-              <li><Link to="#">Blogs</Link></li>
-              <li><Link to="#">Contact Us</Link></li>  
+              <li><Link to="/services">Services</Link></li>
+              <li><Link to="/blogs">Blogs</Link></li>
+              <li><Link to="/contact">Contact Us</Link></li>  
             </ul>
           </nav>
           <div className="auth-buttons">

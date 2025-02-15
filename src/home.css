@@ -32,16 +32,16 @@
     align-items: center;
   }
   
-  .nav-links {
+  .nav-links1 {
     display: flex;
     list-style: none;
   }
   
-  .nav-links li {
+  .nav-links1 li {
     margin: 0 15px;
   }
   
-  .nav-links li a {
+  .nav-links1 li a {
     color: #fff;
     text-decoration: none;
   }

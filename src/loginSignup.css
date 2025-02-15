@@ -12,11 +12,13 @@ body {
     padding: 0px;
   }
   
-
-  .header-new {
-    background-color: #333;
-    padding: 1px 0;
-  }
+.header-new {
+  background-color: #333;
+  padding: 10px 0;  /* Adjusted padding for better spacing */
+  display: flex;  /* Added flexbox */
+  justify-content: space-between;  /* Distributes space between items */
+  align-items: left;  /* Vertically center the items */
+}
   
   .logo-new h1 {
     color: #fff;

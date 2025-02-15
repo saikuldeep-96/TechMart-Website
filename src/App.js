@@ -8,7 +8,7 @@ import { getAuth } from "firebase/auth";  //
 import "./App.css";
 import Home from "./home";
 
-import blogs from "./blogs";
+import Blogs from "./blogs";
 import Services from "./services";
 import Contact from "./contact";
 
@@ -20,6 +20,9 @@ import OrderHistory from "./uOrderHistory";
 import Checkout from "./checkout";
 import PaymentPage from "./payment";
 import ConfirmationPage from "./confirmation";
+
+import Laptops from "./laptops";
+import ProductsPage from "./mobiles";
 
 
 import AdminDashboard from "./adminDashboard";      
@@ -69,15 +72,17 @@ function App() {
           <Route path="/" element={<Home />} />
 
           <Route path="/services" element={<Services />} />
-          <Route path="/blogs" element={<blogs />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/contact" element={<Contact />} />
           
           <Route path="/login-signup" element={<LoginSignup />} />
           <Route path="/products" element={<Products />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/order-history" element={<OrderHistory />} />
+
           <Route path="/laptops" element={<Laptops />} />
-          <Route path="/mobiles" element={<Mobiles />} />
+          <Route path="/mobiles" element={<ProductsPage />} />
+
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
         </Routes>

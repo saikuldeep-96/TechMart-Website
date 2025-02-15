@@ -10,7 +10,7 @@ const Products = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [products, setProducts] = useState([]);  // State to store fetched products
-  const [filteredProducts, setFilteredProducts] = useState([]);  // State to store filtered products
+  const [filteredProducts, setFilteredProducts] = useState([]);  
   const [searchTerm, setSearchTerm] = useState('');  // State to track the search input
   const [cart, setCart] = useState([]); // State to store cart items
 

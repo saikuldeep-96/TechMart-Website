@@ -7,7 +7,7 @@
   border-collapse: collapse;
 }
 
-.orders-table th, .orders-table td {
+.orders-table th, .orders-table td { /* Add this line */
   padding: 10px;
   text-align: left;
 }

@@ -5,7 +5,7 @@ import { auth, database } from './firebase';
 import { ref, set, get, update } from 'firebase/database';
 import './loginSignup.css';
 
-const LoginSignup = () => {
+const LoginSignup = () => {  //
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

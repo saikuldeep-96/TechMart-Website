@@ -12,7 +12,7 @@
   .search-input {
     width: 100%;
     padding: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 20px;  /* Add this line */
     border: 1px solid #ccc;
   }
   

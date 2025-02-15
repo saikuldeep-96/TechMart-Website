@@ -11,7 +11,7 @@ const InventoryPage = () => {
     category: "mobile",
     stock: "",
   });
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");  //
 
   // Fetch products from Firebase
   const fetchProducts = async () => {

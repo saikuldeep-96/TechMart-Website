@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, get, set } from "firebase/database";  // Add set import here
+import { getDatabase, ref, get, set } from "firebase/database"; 
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import "./payment.css";

@@ -4,9 +4,9 @@ import './ordersAdmin.css';
 
 const OrdersAdmin = () => {
   const [orders, setOrders] = useState([]);
-  const [loading, setLoading] = useState(true); // Track loading state
-  const [error, setError] = useState(null);  // Track error state
-  const db = getDatabase();  // Initialize Firebase Realtime Database instance
+  const [loading, setLoading] = useState(true); 
+  const [error, setError] = useState(null);  
+  const db = getDatabase();  
 
   // Fetch orders from Firebase
   const fetchOrders = async () => {

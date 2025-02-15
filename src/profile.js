@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { updatePassword, updateProfile, reauthenticateWithCredential, EmailAuthProvider } from "firebase/auth";
 import { auth, database } from "./firebase";
 import { ref, update, get } from "firebase/database";
-import { useNavigate } from "react-router-dom";                             // updated with details fetching and updating details
+import { useNavigate } from "react-router-dom";                             // updated with details fetching
 import "./profile.css";
 
 const UpdateProfile = () => {

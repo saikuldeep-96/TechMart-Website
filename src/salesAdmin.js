@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { getDatabase, ref, get, query, orderByChild, startAt, endAt } from "firebase/database";
 import "./salesAdmin.css";
 
-const SalesReport = () => {
+const SalesReport = () => { //
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [orders, setOrders] = useState([]);

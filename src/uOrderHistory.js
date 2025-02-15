@@ -7,7 +7,7 @@ import "./uOrderHistory.css";
 const OrderHistory = () => {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const navigate = useNavigate();  // Initialize navigation
+  const navigate = useNavigate();  
 
   useEffect(() => {
     const fetchOrders = () => {

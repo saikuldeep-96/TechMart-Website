@@ -12,7 +12,6 @@ const UsersPage = () => {
   const auth = getAuth();
 
   useEffect(() => {
-    // Check if the user is authenticated and fetch user data
     onAuthStateChanged(auth, (user) => {
       if (user) {
         setCurrentUser(user);
